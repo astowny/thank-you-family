@@ -10,6 +10,7 @@
         "test": "jest"
     },
     "dependencies": {
+        "confetti-js": "^0.0.18",
         "core-js": "^3.6.4",
         "vue": "^2.6.11"
     },

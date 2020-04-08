@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="$auth.user">
-      <button type="button" @click="$auth.logout">Log out</button>
+      <button class="btn" type="button" @click="$auth.logout">Log out</button>
       <App />
     </div>
 
@@ -38,5 +38,32 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
+
+.btn {
+  position: relative;
+  z-index: 300;
+  border-radius: 5px;
+  background-color: goldenrod;
+  color: blue;
+  font-weight: 900;
+  border: none;
+  height: 36px;
+  width: 100px;
+  display: flex;
+  margin-top: 15px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+}
+
+.btn:hover {
+  background: rgb(133, 101, 20);
+  cursor: pointer;
+}
+
+* {
+  font-family: "Raleway", sans-serif;
+}
 </style>

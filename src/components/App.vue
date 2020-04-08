@@ -1,13 +1,23 @@
 <template>
   <div id="app">
-    Welcome {{$auth.user.displayName}}
-    <br />
-    <span class="text">{{message}}</span>
+    <canvas id="my-canvas"></canvas>
+    <div class="welcome">
+      <h1>Welcome {{$auth.user.displayName}}</h1>
+      <br />
+      <span class="text">{{message}}</span>
+    </div>
   </div>
 </template>
 
 <script>
+import ConfettiGenerator from "confetti-js";
+
 export default {
+  mounted() {
+    var confettiSettings = { target: "my-canvas" };
+    var confetti = new ConfettiGenerator(confettiSettings);
+    confetti.render();
+  },
   name: "App",
   data() {
     return {};
@@ -16,15 +26,23 @@ export default {
     message() {
       var msg = "";
       switch (this.$auth.user.username) {
+        case "papa Mardochée":
+          msg =
+            "Merci papa pour qui tu es. Merci encore. Voici une autre manière que j'ai trouvé pour te remercier de tout ce que tu es pour moi. Merci papa Mardochée";
+          break;
+        case "maman Rébecca":
+          msg =
+            "Merci maman Rébecca pour qui tu es. Pour ta vie merci Seigneur. Merci pour ton amour. Merci d'être là pour papa Mardochée, et aussi pour nous. Tu es une grande bénédiction pour chacun d'entre nous et le gloire revient à DIEU !!!";
+          break;
         case "maman José":
           msg =
             "Merci maman José pour tes prières, ton soutien, ta présence, ta personne dans ma vie. Tu es une bénédiction pour moi et c'est une grâce que de t'avoir pour maman. MERCI SEIGNEUR POUR TA VIE !!! Que sa grâce soit sur toi, et que sa présence soit avec toi, que tu réussisses dans toutes tes entreprises  et que la clarté soit ton partage !!!";
           break;
-        case "maman Eliane":
+        case "maman Éliane":
           msg =
             "Merci maman Éliane pour qui tu es. Le Seigneur nous a fait la grâce d'avoir une maman qui aime la cuisine, on a été bien nourris à chaque cellule !! Tu as cette affection pour les gens autour de toi, tu ressens les choses et tu restes connectée au Seigneur, merci maman ça me fait du bien. C'est une grâce que de t'avoir pour maman !! MERCI SEIGNEUR POUR TA VIE ! Tu es bénie toi et ta famille ! Que la grâce et la paix de DIEU soit avec toi !";
           break;
-        case "Aurelie":
+        case "Aurélie":
           msg =
             "You are one of the most beautiful women I know !!! Meci pour ta vie, tes exhortations, tes témoignages. Merci pour ton amour, pour ton soutien, merci Aurélie, sois bénie. MERCI SEIGNEUR POUR TA VIE !!! May his favor be upon you, may his presence be with you, be blessed in the city, be blessed in the field, be blessed in everything you do, let the LORD gives you the desires of your heart !";
           break;
@@ -61,15 +79,31 @@ export default {
 </script>
 
 <style scoped>
+h1 {
+  color: gold;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  width: 80vw;
+  margin: auto;
 }
+
+.welcome {
+  position: relative;
+  z-index: 10;
+}
+
 .text {
+  display: block;
   /* standard gradient background */
   background: linear-gradient(
     to right,
@@ -82,7 +116,28 @@ export default {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
+  position: relative;
   /** */
   font-size: 30px;
+  /** animation */
+  animation: 1s ease-out infinite alternate bounce;
+}
+
+@keyframes bounce {
+  from {
+    top: 0;
+  }
+  to {
+    top: -20px;
+    transform: scale(1.1, 1.1);
+  }
+}
+
+#my-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
 }
 </style>
