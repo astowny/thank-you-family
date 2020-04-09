@@ -52,10 +52,13 @@ export default {
 </script>
 
 <style scoped>
+label {
+  color: rgb(16, 114, 170);
+}
 .btn {
   border-radius: 5px;
   background-color: goldenrod;
-  color: blue;
+  color: rgb(16, 114, 170);
   font-weight: 900;
   border: none;
   height: 36px;

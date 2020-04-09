@@ -26,6 +26,7 @@ export default {
   },
   methods: {
     login({ username, password }) {
+      this.errorMessage = "";
       this.$auth.login(username, password);
       if (!this.$auth.user) {
         this.errorMessage = "Authentication failed, please try again";
@@ -46,7 +47,7 @@ export default {
   z-index: 300;
   border-radius: 5px;
   background-color: goldenrod;
-  color: blue;
+  color: rgb(16, 114, 170);
   font-weight: 900;
   border: none;
   height: 36px;

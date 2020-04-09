@@ -5,6 +5,8 @@
       <h1>Welcome {{$auth.user.displayName}}</h1>
       <br />
       <span class="text">{{message}}</span>
+      <br />
+      <h1 class="red">Tony</h1>
     </div>
   </div>
 </template>
@@ -28,7 +30,7 @@ export default {
       switch (this.$auth.user.username) {
         case "papa Mardochée":
           msg =
-            "Merci papa pour qui tu es. Merci encore. Voici une autre manière que j'ai trouvé pour te remercier de tout ce que tu es pour moi. Merci papa Mardochée";
+            "Merci papa pour qui tu es. Merci encore. Voici une autre manière que j'ai trouvé pour te remercier de tout ce que tu es pour moi. Merci papa Mardochée. ";
           break;
         case "maman Rébecca":
           msg =
@@ -79,11 +81,12 @@ export default {
 </script>
 
 <style scoped>
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
 h1 {
   color: gold;
 }
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Raleway", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
@@ -131,6 +134,10 @@ h1 {
     top: -20px;
     transform: scale(1.1, 1.1);
   }
+}
+
+.red {
+  color: red;
 }
 
 #my-canvas {
